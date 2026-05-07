@@ -27,7 +27,7 @@ class Painel(ctk.CTk):
         ).pack(fill="x", padx=10, pady=(0, 10))
 
         # botões normais — sem o Sair aqui
-        botoes = ["Início", "Consultar CNPJ", "Configurações"]
+        botoes = ["Início", "Consultar CNPJ"]
         for nome in botoes:
             ctk.CTkButton(
                 self.sidebar,

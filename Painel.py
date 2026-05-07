@@ -113,12 +113,14 @@ class Painel(ctk.CTk):
 
         if cnpj == "":
             self.label_resultado.configure(text="Por favor, insira um CNPJ válido.")
+            self.entry_cnpj.configure(border_color="red")
             return
 
         cnpj_limpo = cnpj.replace(".", "").replace("/", "").replace("-", "")
 
         if len(cnpj_limpo) != 14:
             self.label_resultado.configure(text="CNPJ inválido! Precisa ter 14 dígitos.")
+            self.entry_cnpj.configure(border_color="red")
             return
 
         self.label_resultado.configure(text="Consultando...")
@@ -138,12 +140,14 @@ class Painel(ctk.CTk):
                 )
                 self.label_resultado.configure(text=texto)
                 self.btn_copiar.configure(state="normal")
+                self.entry_cnpj.configure(border_color="")
             else:
                 self.label_resultado.configure(text="CNPJ não encontrado.")
+                self.entry_cnpj.configure(border_color="red")
 
         except Exception as erro:
             self.label_resultado.configure(text=f"Erro de conexão: {erro}")
-
+            self.entry_cnpj.configure(border_color="red")
     def copiar_resultado(self):
         texto = self.label_resultado.cget("text")
         self.clipboard_clear()

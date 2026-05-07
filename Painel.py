@@ -4,7 +4,7 @@ import requests
 class Painel(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Consultor de CNPJ")
+        self.title("Painel de Consulta CNPJ")
         self.geometry("700x500")
 
         self.grid_columnconfigure(0, weight=0)
@@ -18,7 +18,7 @@ class Painel(ctk.CTk):
 
         ctk.CTkLabel(
             self.sidebar,
-            text="ERP Consultor",
+            text="Painel de Consulta",
             font=ctk.CTkFont(size=18, weight="bold")
         ).pack(pady=(20, 10))
 
@@ -55,7 +55,7 @@ class Painel(ctk.CTk):
 
         self.titulo = ctk.CTkLabel(
             self.main_frame,
-            text="Consultor de CNPJ",
+            text="Painel de Consulta CNPJ",
             font=ctk.CTkFont(size=20, weight="bold")
         )
         self.titulo.pack(anchor="w", pady=(0, 20))

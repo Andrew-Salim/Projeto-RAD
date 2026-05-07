@@ -1,11 +1,16 @@
 import customtkinter as ctk
 import requests
+import threading
 
 class Painel(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Painel de Consulta CNPJ")
         self.geometry("700x500")
+        try:  
+            self.iconbitmap("icone.ico")
+        except:
+            pass
 
         self.grid_columnconfigure(0, weight=0)
         self.grid_columnconfigure(1, weight=1)
@@ -63,8 +68,11 @@ class Painel(ctk.CTk):
         frame_busca = ctk.CTkFrame(self.main_frame, fg_color="transparent")
         frame_busca.pack(fill="x", pady=(0, 15))
 
-        self.frame_resultado = ctk.CTkFrame(self.main_frame)
-        self.frame_resultado.pack(fill="both", expand=True)
+        self.frame_resultado = ctk.CTkScrollableFrame(
+            self.main_frame,
+            label_text="Resultado da Consulta",
+            label_font=ctk.CTkFont(size=13, weight="bold"))     
+        self.frame_resultado.pack(fill="both", expand=True, pady=10)
 
         self.label_resultado = ctk.CTkLabel(
             self.frame_resultado,
